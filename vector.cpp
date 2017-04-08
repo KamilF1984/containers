@@ -1,34 +1,36 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <list>
+#include "auto.hpp"
 
 using namespace std;
 
 int main ()
 {
-	std::vector<int> myvector (10);
 
-	for (unsigned i=0; i<myvector.size(); i++) 
-		myvector[i]=i;
+	std::list<int> mylist;
+	std::list<int>::iterator it;
 
-	for (int i = 0 ; i < myvector.size() ; ++i)
+	for (int i=0; i<5; ++i) 
+		mylist.push_back(i+1); // 1 2 3 4 5
+
+	for (auto e : mylist)
 	{
-		cout << myvector[i] << " ";
+		cout <<  e << " ";
+	}	cout << endl;
+
+	it = mylist.begin();
+	++it;
+
+	mylist.insert(it,10); 
+	mylist.insert(it,2,20); 
+
+	//range loop
+	for (auto e : mylist)
+	{
+		cout <<  e << " ";
 	}
-
-	cout << endl;
-
-	for (int e : myvector)
-	{
-		cout << e << " ";
-	}
-
-	cout << endl;
-
-	for (auto it = myvector.begin() ; it != myvector.end(); ++it)
-	{
-		cout << *it << " ";
-	}	
 
 	cout << endl;
 
