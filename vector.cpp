@@ -15,19 +15,23 @@ int main ()
 	for (int i=0; i<5; ++i) 
 		mylist.push_back(i+1); // 1 2 3 4 5
 
-	for (auto e : mylist)
+	for (auto it = mylist.begin() ; it != mylist.end();  ++it)
 	{
-		cout <<  e << " ";
-	}	cout << endl;
+		cout <<  *it << " ";
+	}	
 
-	it = mylist.begin();
-	++it;
-
-	mylist.insert(it,10); 
-	mylist.insert(it,2,20); 
+	cout << endl;
 
 	//range loop
 	for (auto e : mylist)
+	{
+		e = 0;
+		cout <<  e << " ";
+	}
+
+	cout << endl;
+
+	for (int e : mylist)
 	{
 		cout <<  e << " ";
 	}
