@@ -2,38 +2,33 @@
 #include <array>
 #include <vector>
 #include <list>
+#include <map>
 #include "auto.hpp"
 
 using namespace std;
 
+enum R{
+R_OK = 0,
+R_MEMORY,
+R_FATAL
+};
+
 int main ()
 {
+	std::map<int,string> c;
+	c[0] = "R_OK";
+	c[1] = "R_MEMORY";
+	c[2] = "R_FATAL";
 
-	std::list<int> mylist;
-	std::list<int>::iterator it;
+	int error = 1;
 
-	for (int i=0; i<5; ++i) 
-		mylist.push_back(i+1); // 1 2 3 4 5
+	cout << c[error] << endl;
 
-	for (auto it = mylist.begin() ; it != mylist.end();  ++it)
+	string s = c[3];
+
+	for (auto e : c)
 	{
-		cout <<  *it << " ";
-	}	
-
-	cout << endl;
-
-	//range loop
-	for (auto e : mylist)
-	{
-		e = 0;
-		cout <<  e << " ";
-	}
-
-	cout << endl;
-
-	for (int e : mylist)
-	{
-		cout <<  e << " ";
+		cout <<  e.second << " ";
 	}
 
 	cout << endl;
