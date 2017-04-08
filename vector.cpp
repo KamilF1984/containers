@@ -1,32 +1,36 @@
-// inserting into a vector
 #include <iostream>
+#include <array>
 #include <vector>
+
+using namespace std;
 
 int main ()
 {
-  std::vector<int> myvector (3,100);
-  std::vector<int>::iterator it;
+	std::vector<int> myvector (10);
 
-  it = myvector.begin();
-  it = myvector.insert ( it , 200 );
+	for (unsigned i=0; i<myvector.size(); i++) 
+		myvector[i]=i;
 
-  myvector.insert (it,2,300);
+	for (int i = 0 ; i < myvector.size() ; ++i)
+	{
+		cout << myvector[i] << " ";
+	}
 
-  // "it" no longer valid, get a new one:
-  it = myvector.begin();
+	cout << endl;
 
-  std::vector<int> anothervector (2,400);
-  myvector.insert (it+2,anothervector.begin(),anothervector.end());
+	for (int e : myvector)
+	{
+		cout << e << " ";
+	}
 
-  int myarray [] = { 501,502,503 };
-  myvector.insert (myvector.begin(), myarray, myarray+3);
+	cout << endl;
 
-  std::cout << "myvector contains:";
-  for (it=myvector.begin(); it<myvector.end(); it++)
-    std::cout << ' ' << *it;
-  std::cout << '\n';
+	for (auto it = myvector.begin() ; it != myvector.end(); ++it)
+	{
+		cout << *it << " ";
+	}	
 
-auto t = 10;
+	cout << endl;
 
-  return 0;
+	return 0;
 }
