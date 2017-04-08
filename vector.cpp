@@ -7,28 +7,29 @@
 
 using namespace std;
 
-enum R{
-R_OK = 0,
-R_MEMORY,
-R_FATAL
-};
-
 int main ()
 {
-	std::map<int,string> c;
-	c[0] = "R_OK";
-	c[1] = "R_MEMORY";
-	c[2] = "R_FATAL";
+	std::vector<car*> c;
 
-	int error = 1;
-
-	cout << c[error] << endl;
-
-	string s = c[3];
+	c.push_back(new BMW("black", 150));
+	c.push_back(new VW("white", 70));
+	c.push_back(new AUDI("blue", 120));
 
 	for (auto e : c)
 	{
-		cout <<  e.second << " ";
+		e->go();
+	}
+
+	for (auto e : c)
+	{
+		delete e;
+	}
+
+	c.clear();
+
+	for (auto e : c)
+	{
+		delete e;
 	}
 
 	cout << endl;
