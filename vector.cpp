@@ -7,6 +7,26 @@
 
 using namespace std;
 
+// Auta
+// Klienci 
+// rentals
+// back
+
+
+// List with [] on top of std::list 
+
+template <T t>
+class List
+{
+	public:
+	t& operator[](index);
+	//private:
+	std::list<t> myList;
+}
+
+// 2 wymiarowa tablica dynamiczna
+
+
 int main ()
 {
 	std::vector<car*> c;
